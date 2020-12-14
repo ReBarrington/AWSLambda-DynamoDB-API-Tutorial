@@ -1,4 +1,4 @@
-// lambda aws extension makes boilerplate
+// lambda aws extension makes boilerplate.
 
 'use strict'
 const AWS = require('aws-sdk');
