@@ -1,3 +1,5 @@
+// This file contains all the functions and what they're going to do (CRUD)
+
 "use strict";
 
 // npm install aws-sdk --save

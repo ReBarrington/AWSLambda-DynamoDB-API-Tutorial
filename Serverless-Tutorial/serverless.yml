@@ -1,3 +1,5 @@
+## this file defines functions and what's going to trigger them
+
 service: thekittens-crud
 
 provider:
