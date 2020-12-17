@@ -11,20 +11,39 @@ exports.handler = async (event, context) => {
   const documentClient = new AWS.DynamoDB.DocumentClient({
     region: "us-east-1",
   });
+
+  let responseBody = "";
+  let statusCode = 0;
+
+  // extract properties from request body
+  const { id, firstname, lastname } = JSON.parse(event.body);
+
   const params = {
     // describes the object we want to pull out of DynamoDB
     TableName: "Users",
     Item: {
-      id: "67890",
-      firstname: "Bob",
-      lastname: "Johnson",
+      id: id,
+      firstname: firstname,
+      lastname: lastname,
     },
   };
 
   try {
     const data = await documentClient.put(params).promise();
-    console.log(data);
+    responseBody = JSON.stringify(data);
+    statusCode = 201;
   } catch (err) {
-    console.log(err);
+    responseBody = "Unable to put user data.";
+    statusCode = 403;
   }
+
+  const response = {
+    statusCode: statusCode,
+    headers: {
+      myHeader: "test",
+    },
+    body: responseBody,
+  };
+
+  return response;
 };
