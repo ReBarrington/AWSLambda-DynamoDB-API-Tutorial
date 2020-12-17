@@ -32,3 +32,7 @@ We will create a Users table with two lambda functions: GetUserData and PutUserD
     - After function has been written. Copy and paste to Lambda interface.
 - Test Lambda Function
     - Configure Test Event, deploy, test
+
+## Amazon API Gateway
+- We're using API Gateway to create a simple REST API to interact with our lambda functions to get/set user data. 
+- API Gateway will call our lambda functions, which will in turn get/set data in the database.

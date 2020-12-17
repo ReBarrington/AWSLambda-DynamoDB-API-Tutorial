@@ -6,7 +6,7 @@ const AWS = require("aws-sdk");
 // set region
 AWS.config.update({ region: "us-east-1" });
 
-exports.handler = function (event, context) {
+exports.handler = async (event, context) => {
   const ddb = new AWS.DynamoDB({ apiVersion: "2012-10-08" });
   const documentClient = new AWS.DynamoDB.DocumentClient({
     region: "us-east-1",
@@ -19,10 +19,10 @@ exports.handler = function (event, context) {
     },
   };
 
-  documentClient.get(params, (err, data) => {
-    if (err) {
-      console.log(err);
-    }
+  try {
+    const data = await documentClient.get(params).promise();
     console.log(data);
-  });
+  } catch (err) {
+    console.log(err);
+  }
 };
