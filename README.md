@@ -32,4 +32,3 @@ We will create a Users table with two lambda functions: GetUserData and PutUserD
     - After function has been written. Copy and paste to Lambda interface.
 - Test Lambda Function
     - Configure Test Event, deploy, test
-- `npm i @aws-sdk/client-dynamodb` and `const {DynamoDBClient} = require("@aws-sdk/cient-dynamodb")`

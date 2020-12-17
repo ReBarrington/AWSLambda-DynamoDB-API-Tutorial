@@ -2,14 +2,13 @@
 
 "use strict";
 const AWS = require("aws-sdk");
-const {DynamoDBClient} = require("@aws-sdk/cient-dynamodb")
 
 // set region
 AWS.config.update({ region: "us-east-1" });
 
 exports.handler = function (event, context) {
   const ddb = new AWS.DynamoDB({ apiVersion: "2012-10-08" });
-  const documentClient = new AWS.DynamoDB.documentClient({
+  const documentClient = new AWS.DynamoDB.DocumentClient({
     region: "us-east-1",
   });
   const params = {
