@@ -1,21 +1,29 @@
-// lambda aws extension makes boilerplate.
-// handler will be index.handler
-// this tutorial is using the dynamoDB
+// This function should return an item from DynamoDB
 
 "use strict";
 const AWS = require("aws-sdk");
+const {DynamoDBClient} = require("@aws-sdk/cient-dynamodb")
 
 // set region
 AWS.config.update({ region: "us-east-1" });
 
-exports.handler = function (event, context, callback) {
+exports.handler = function (event, context) {
   const ddb = new AWS.DynamoDB({ apiVersion: "2012-10-08" });
+  const documentClient = new AWS.DynamoDB.documentClient({
+    region: "us-east-1",
+  });
   const params = {
+    // describes the object we want to pull out of DynamoDB
     TableName: "Users",
     Key: {
-      id: {
-        s: "12345",
-      },
+      id: "12345",
     },
   };
+
+  documentClient.get(params, (err, data) => {
+    if (err) {
+      console.log(err);
+    }
+    console.log(data);
+  });
 };
