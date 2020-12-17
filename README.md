@@ -3,7 +3,7 @@
 [YouTube Tutorial Here](https://www.youtube.com/watch?v=ijyeE-pXFk0&t=1939s)
 
 ## Getting Started
-- Create a table in DynamoDB: Users
+- Create a table in DynamoDB: `Users`
     - Primary Key can be id, a string
     - Add 1 item to the table
 - Create an IAM role to give our lambda permissions to work with the table
@@ -22,3 +22,6 @@
     - Use the exisiting role just created.
     - The Designer Tab allows you to specify triggers (We will set up API Gateway later)
     - Not recommended to edit code directly in the interface. Use VSC.
+    - `AWS Lambda Boilerplate Snippets` is a recommended extension
+        - `lambda-aws` will scaffold a starting function
+        
