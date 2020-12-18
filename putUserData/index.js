@@ -40,9 +40,11 @@ exports.handler = async (event, context) => {
   const response = {
     statusCode: statusCode,
     headers: {
-      myHeader: "test",
+      "Access-Control-Allow-Headers": "json/application",
+      "Access-Control-Allow-Origin": "http://localhost:3000",
+      "Access-Control-Allow-Methods": "OPTIONS,POST,GET",
     },
-    body: responseBody,
+    body: responseBody
   };
 
   return response;
