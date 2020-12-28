@@ -4,7 +4,7 @@
   padding: 5%;
 }
 
-.UsersList {
+.PostsList {
   border: black 2px solid;
   background-color: white;
   display: flex;
@@ -14,7 +14,7 @@
   margin: 5%;
 }
 
-.UserCard {
+.Post {
   border: black 2px solid;
   background-color: cadetblue;
   font-size: 20px;;
